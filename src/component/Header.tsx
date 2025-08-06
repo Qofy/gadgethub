@@ -1,6 +1,7 @@
 import { ShoppingCart,  User} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/header.css";
+import "../style/header.css";
+
 function Header() {
    const navigate = useNavigate();
    
@@ -10,9 +11,9 @@ function Header() {
   return (
     <header className="header">
       <div className="logo-container">
-      <span className="logo">
+      <div className="logo">
         G
-      </span>
+      </div>
 
       <span className="title">
         GadgetHub
@@ -28,8 +29,8 @@ function Header() {
         <input type="search" placeholder="Search gadgets..." />
 
       <div className="icons">
-        <ShoppingCart className="icon" />
         <User className="icon" onClick={handleUserClick} />
+        <ShoppingCart className="icon" />
       </div>
     </header>
   );
