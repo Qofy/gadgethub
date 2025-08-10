@@ -1,5 +1,6 @@
 import '../App.css'
 import Header from './Header'
+
 // FIX: Use react-router-dom instead of react-router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./Home"
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
+
   )
 }
 

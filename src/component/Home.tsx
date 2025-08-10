@@ -1,12 +1,13 @@
 import { Truck, Shield, Star } from "lucide-react";
 import "../style/home.css";
+import Feature from "./Feature";
 // import Product from "../assets/modern.jpg"
 
 function Header() {
   return (
-   <div className="main-container">
-    <div className="header-container">
+   <>
 <section className="main-section">
+  <div className="main-content">
       <h1 className="main-title">
         Smart Gadgets for <span>Mordern Homes</span>
       </h1>
@@ -31,18 +32,14 @@ function Header() {
           <p>Free Shipping </p>
         </div>
       </div>
+      </div>
+
+       <div className="product-image">
+      </div>
       
     </section>
-    {/* <div className="product-icon">
-        <span>50+</span>
-        <p>product</p>
-      </div> */}
-      <div className="product-image">
-      </div>
-    </div>
-    
-
-   </div>
+      <Feature />  
+    </>
   );
 }
 
