@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ShoppingCart } from "lucide-react";
 import "../style/feature.css"; 
+import StarRating from "./StarRating";
 
 function Feature() {
 interface Product {
@@ -54,14 +55,15 @@ const data: Product[] = await response.json();
           <img src={product.prodImg} alt={product.title} className="featured-image" />
           </div>
 
-          <div>
+          <div className="featued-disc">
             <h3>
               {product.title}
             </h3>
             {product.rate}
             <p>Price: {product.price}</p>
           </div>
-          <button>
+          <StarRating size={20} color="blue"/>
+          <button className="featured-btn">
             <ShoppingCart />
             Add to Cart
           </button>
@@ -69,7 +71,7 @@ const data: Product[] = await response.json();
       ))}
           
       </div>
-      <button>
+      <button className="featured-view">
         View All Products
       </button>
     </div>
