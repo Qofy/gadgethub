@@ -6,7 +6,7 @@ import Feature from "./Feature";
 function Header() {
   return (
    <>
-<section className="main-section">
+<div className="main-section">
   <div className="main-content">
       <h1 className="main-title">
         Smart Gadgets for <span>Mordern Homes</span>
@@ -37,7 +37,7 @@ function Header() {
        <div className="product-image">
       </div>
       
-    </section>
+    </div>
       <Feature />  
     </>
   );

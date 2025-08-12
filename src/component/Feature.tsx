@@ -20,7 +20,7 @@ const [products, setProducts] = useState<Product[]>([]);
     const fetchProduct = async() =>{
       try{
         setLoading(true);
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch("http://localhost:30001/products");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -1,35 +1,34 @@
 
-.main-content{
+.main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 2rem;
-  /* background-color: #f9f9f9; */
   border-radius: 8px;
-  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
   gap: 1rem;
 }
 
 .main-section {
- display: grid;
+  
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem;
-  /* max-width: 1200px; */
-  /* margin: auto; */
 }
-.main-title{
+
+.main-title {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
 .main-title span {
-background-image: linear-gradient(45deg, #646cff, #61dafb);
+  background-image: linear-gradient(45deg, #646cff, #61dafb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
+
 .main-container .main-description {
   font-size: 1.2rem;
   color: #555;
@@ -41,7 +40,8 @@ background-image: linear-gradient(45deg, #646cff, #61dafb);
   display: flex;
   gap: 1rem;
 }
-.btns{
+
+.btns {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
@@ -50,14 +50,15 @@ background-image: linear-gradient(45deg, #646cff, #61dafb);
   font-size: 1.2rem;
   font-weight: 700;
 }
-.main-btn1{
-   background-color: #007bff;
+
+.main-btn1 {
+  background-color: #007bff;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 .features {
@@ -72,6 +73,7 @@ background-image: linear-gradient(45deg, #646cff, #61dafb);
   margin-bottom: 2.5rem;
   font-size: .7rem;
 }
+
 .feature-item {
   display: flex;
   flex-direction: row;
@@ -81,22 +83,22 @@ background-image: linear-gradient(45deg, #646cff, #61dafb);
   gap: .3rem;
   flex: 1;
   padding: 1rem;
-  /* border: 1px solid #e0e0e0; */
   border-radius: 8px;
-  /* background-color: #f9f9f9; */
   width: 10rem;
   height: 100%;
 }
+
 .product-image {
- width: 100%;
+  width: 100%;
   height: auto;
- z-index: -1;
- background-image: url("../assets/modern.jpg");
+  z-index: -1;
+  background-image: url("../component/images/modern.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
 .product-icon {
   width: 70px;
   height: 70px;
@@ -109,9 +111,394 @@ background-image: linear-gradient(45deg, #646cff, #61dafb);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 10;
 }
+
 .product-icon span {
   font-size: 1.5rem;
   font-weight: bold;
   color: #007bff;
+}
+
+@media (min-width: 1440px) {
+  .main-content {
+    padding: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .main-section {
+    gap: 3rem;
+    padding: 3rem;
+    max-width: 1400px;
+  }
+  
+  .main-title {
+    font-size: 4rem;
+  }
+  
+  .main-description {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .features {
+    gap: 3rem;
+    max-width: 1200px;
+  }
+  
+  .product-icon {
+    width: 80px;
+    height: 80px;
+    top: 420px;
+    left: calc(50% + 600px);
+  }
+}
+
+@media (max-width: 1439px) and (min-width: 1200px) {
+  .main-content {
+    padding: 2.5rem;
+  }
+  
+  .main-section {
+    gap: 2.5rem;
+    padding: 2.5rem;
+    max-width: 1200px;
+  }
+  
+  .product-icon {
+    left: calc(50% + 500px);
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .main-section {
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .main-description {
+    font-size: 1.1rem;
+  }
+  
+  .features {
+    gap: 1.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .feature-item {
+    width: 8rem;
+    padding: 0.8rem;
+  }
+  
+  .product-icon {
+    width: 60px;
+    height: 60px;
+    top: 320px;
+    left: calc(50% + 300px);
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+  }
+  
+  .main-description {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .btns, .main-btn1 {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .feature-item {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .product-icon {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 1rem auto;
+    display: block;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 640px) {
+  .main-content {
+    padding: 1.2rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 1.2rem;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .main-description {
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+  }
+  
+  .btns, .main-btn1 {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .feature-item {
+    width: 100%;
+    padding: 0.8rem;
+    gap: 0.5rem;
+  }
+  
+  .product-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0.8rem auto;
+  }
+  
+  .product-icon span {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 639px) and (min-width: 480px) {
+  .main-content {
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .main-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.3px;
+  }
+  
+  .btn {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .btns, .main-btn1 {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .feature-item {
+    width: 100%;
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+  
+  .product-icon {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0.6rem auto;
+  }
+  
+  .product-icon span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .main-content {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  
+  .main-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .main-description {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2px;
+  }
+  
+  .btn {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btns, .main-btn1 {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 3px;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.65rem;
+  }
+  
+  .feature-item {
+    width: 100%;
+    padding: 0.5rem;
+    gap: 0.3rem;
+    flex-direction: column;
+  }
+  
+  .product-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0.5rem auto;
+    padding: 0.3rem;
+  }
+  
+  .product-icon span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 319px) {
+  .main-content {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .main-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .main-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.1px;
+  }
+  
+  .btn {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .btns, .main-btn1 {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.6rem;
+  }
+  
+  .feature-item {
+    width: 100%;
+    padding: 0.4rem;
+    gap: 0.2rem;
+    flex-direction: column;
+  }
+  
+  .product-icon {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0.4rem auto;
+    padding: 0.2rem;
+  }
+  
+  .product-icon span {
+    font-size: 0.8rem;
+  }
 }
 
