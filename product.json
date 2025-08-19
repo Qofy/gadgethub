@@ -4,28 +4,28 @@
       "id": 1,
       "prodImg": "https://m.media-amazon.com/images/I/71CW36JRavL.jpg",
       "title": "Phone",
-      "rate": "",
+      "rate": 4,
       "price": "£100"
     },
     {
       "id": 2,
       "prodImg": "https://m.media-amazon.com/images/I/41Dg9haNatL.jpg",
       "title": "Wireless Charging Pad",
-      "rate": "",
+      "rate": "4",
       "price": "£200"
     },
     {
       "id": 3,
       "prodImg": "https://m.media-amazon.com/images/S/aplus-media/vc/cd38a356-3bf6-4a06-be8b-50c8c29be89e.__CR0,0,600,450_PT0_SX600_V1___.jpg",
       "title": "JBL Bluetooth Speaker",
-      "rate": "",
+      "rate": "4",
       "price": "£300"
     },
     {
       "id": 4,
       "prodImg": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_142287370?x=536&y=402&format=jpg&quality=80&sp=yes&strip=yes&trim&ex=536&ey=402&align=center&resizesource&unsharp=1.5x1+0.7+0.02&cox=0&coy=0&cdx=536&cdy=402",
       "title": "Smart Samsung TV",
-      "rate": "",
+      "rate": "4",
       "price": "£400"
     }
   ]

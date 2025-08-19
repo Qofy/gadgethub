@@ -1,44 +1,24 @@
-import { Truck, Shield, Star } from "lucide-react";
 import "../style/home.css";
 import Feature from "./Feature";
+import Recommended from "./Recommended";
+import HomeHeader from "./HomeHeader";
 // import Product from "../assets/modern.jpg"
 
 function Header() {
   return (
    <>
-<div className="main-section">
-  <div className="main-content">
-      <h1 className="main-title">
-        Smart Gadgets for <span>Mordern Homes</span>
-      </h1>
-      <p className="main-description">
-        Discover cutting-edge home gadgets that make your life easier, smarter, and more connected. From smart speakers to wireless chargers, we have everything you need.
-      </p>
-      <div className="btn">
-      <button className="main-btn1 btns">Shop Now &#8594;</button>
-      <button className="main-btn btns">View Catalog</button>
-      </div>
-      <div className="features">
-        <div className="feature-item">
-          <Star/>
-          <p>4.8/5 Customer Rating</p>
-        </div>
-        <div className="feature-item">
-          <Shield/>
-          <p>Years Warranty</p>
-        </div>
-        <div className="feature-item">
-          <Truck/>
-          <p>Free Shipping </p>
-        </div>
-      </div>
-      </div>
-
-       <div className="product-image">
-      </div>
-      
-    </div>
-      <Feature />  
+      <HomeHeader/>
+      <Feature featureContainer="featured-container" 
+      h1="Featured Product" 
+      p="Discover our most popular gadgets that customers love. Each product comes with <br/> our quality guarantee and fast shipping"                 
+      featuredItem="featured-item" 
+      featuredList="featured-list" 
+      featuredImageContainer="featured-image-container" 
+      featuredImage="featured-image" 
+      featuredDisc="featued-dis" 
+      featuredBtn="featured-btn" 
+      featuredView="featured-view"/>  
+      <Recommended/>
     </>
   );
 }
