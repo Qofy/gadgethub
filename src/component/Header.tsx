@@ -1,6 +1,7 @@
 import { ShoppingCart,  User} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style/header.css";
+import Logo from "./Logo";
 
 function Header() {
    const navigate = useNavigate();
@@ -10,16 +11,7 @@ function Header() {
    }
   return (
     <header className="header">
-      <div className="logo-container">
-      <div className="logo">
-        G
-      </div>
-
-      <span className="title">
-        GadgetHub
-      </span>
-      </div>
-
+      <Logo/>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/categories">Categories</Link>

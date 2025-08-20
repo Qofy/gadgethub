@@ -2,6 +2,7 @@ import "../style/home.css";
 import Feature from "./Feature";
 import Recommended from "./Recommended";
 import HomeHeader from "./HomeHeader";
+import Footer from "./Footer";
 // import Product from "../assets/modern.jpg"
 
 function Header() {
@@ -19,6 +20,7 @@ function Header() {
       featuredBtn="featured-btn" 
       featuredView="featured-view"/>  
       <Recommended/>
+      <Footer/>
     </>
   );
 }
