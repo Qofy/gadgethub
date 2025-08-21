@@ -5,9 +5,9 @@ import Header from './Header'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./Home"
 import Categories from '../component/Categories'
-import Deal from '../component/Deal'
-import About from '../component/About'
-import Login from '../component/Login'
+import Deal from './Deal'
+import About from '../home/About'
+import Login from '../home/Login'
 
 function App() {
   return (

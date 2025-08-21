@@ -1,6 +1,6 @@
 import "../style/recommended.css"
 import { RotateCcw, Shield, Truck, Headphones } from "lucide-react"
-import AboutInfo from "../sub-component/AboutInfo"
+import AboutInfo from "./AboutInfo"
 
 function Recommended(){
   return(

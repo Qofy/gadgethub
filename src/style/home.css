@@ -1,4 +1,6 @@
-
+.hom-container{
+  background-color: #cad7eb;
+}
 .main-content {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,7 @@
   padding: 2rem;
   border-radius: 8px;
   gap: 1rem;
+
 }
 
 .main-section {
@@ -91,7 +94,7 @@
 .product-image {
   width: 100%;
   height: auto;
-  z-index: -1;
+  z-index: 1;
   background-image: url("../component/images/modern.jpg");
   background-size: cover;
   background-position: center;

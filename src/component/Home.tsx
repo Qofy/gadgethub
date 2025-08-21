@@ -1,13 +1,13 @@
 import "../style/home.css";
-import Feature from "./Feature";
-import Recommended from "./Recommended";
+import Feature from "../home/Feature";
+import Recommended from "../home/Recommended";
 import HomeHeader from "./HomeHeader";
 import Footer from "./Footer";
 // import Product from "../assets/modern.jpg"
 
 function Header() {
   return (
-   <>
+   <div className="hom-container">
       <HomeHeader/>
       <Feature featureContainer="featured-container" 
       h1="Featured Product" 
@@ -21,7 +21,7 @@ function Header() {
       featuredView="featured-view"/>  
       <Recommended/>
       <Footer/>
-    </>
+    </div>
   );
 }
 

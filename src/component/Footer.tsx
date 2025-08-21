@@ -1,6 +1,7 @@
-import Logo from "./Logo";
+import Logo from "../home/Logo";
 import "../style/footer.css"
-import { Facebook, Twitter, Instagram,Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram,Youtube, Phone, Mail, MapPin,  } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Footer(){
   return(
@@ -12,9 +13,9 @@ function Footer(){
             Your trusted destination for cutting-edge home gadgets and electronics. Making technology accessible for everyone.
           </p>
           <div className="header-media">
-            <Facebook/>
-            <Twitter/>
-            <Instagram/>
+            <Facebook width={20}/>
+            <Twitter width={20}/>
+            <Instagram width={20}/>
             <Youtube/>
           </div>
         </div>
@@ -47,17 +48,33 @@ function Footer(){
             Get in Touch
           </h2>
           <ul>
-            <li> <Phone/> +1 (555) 123-4567</li>
+            <li> <Phone color="#007bff"/> +1 (555) 123-4567</li>
             <li>
-          <Mail/>
+          <Mail color="#007bff"/>
           support@gadgethub.com
             </li>
             <li> 
-          <MapPin/>
+          <MapPin color="#007bff"/>
           123 Tech Street, Silicon Valley, CA
             </li>
           </ul>         
         </div>
+      </div>
+      <div className="footer-legals">
+          <p>
+          &copy; 2024 GadgetHub. All rights reserved.
+          </p>
+          <div className="footer-ptc">
+            <Link className="link" to="">
+            Privacy Policy
+            </Link>
+            <Link className="link" to="">
+            Terms of Service
+            </Link>
+            <Link className="link" to="">
+           Cookie Policy
+            </Link>
+          </div>
       </div>
     </div>
   )
