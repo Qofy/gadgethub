@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite dev"
+    "start": "vite dev",
+    "server":"json-server --watch product.json --port 300"
   },
   "dependencies": {
     "lucide-react": "^0.536.0",

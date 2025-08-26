@@ -7,7 +7,7 @@ import Home from "./Home"
 import Categories from '../component/Categories'
 import Deal from './Deal'
 import About from '../home/About'
-import Login from '../home/Login'
+import Login from './Login'
 
 function App() {
   return (

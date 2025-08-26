@@ -1,4 +1,5 @@
 import { Truck, Shield, Star } from "lucide-react";
+import "../style/home.css"
 
 
 function HomeHeader(){

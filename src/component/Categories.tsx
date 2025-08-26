@@ -2,6 +2,7 @@ import { NavLink } from "react-router";
 import CategoriesHeader from "../categories/CategoriesHeader";
 import ProductItem from "../categories/ProductItem";
 import "../style/category.css"
+import Footer from "./Footer";
 
 function Categories() {
   return (
@@ -31,8 +32,8 @@ function Categories() {
           <ProductItem productName="Smart Phones" desc="All Smart-phones of your type are available" numProduct={24} imgSrc="https://cdn.mos.cms.futurecdn.net/M4nigVN3vvA5EEnNX9atxY.jpg"/>
           </NavLink>
         </div>
-
       </div>
+        <Footer/>
     </div>
   );
 }
