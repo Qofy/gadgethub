@@ -1,6 +1,9 @@
+import Header from "./Header";
+
 function About() {
   return (
     <div>
+      <Header/>
       <h1>About Us</h1>
       <p>Welcome to GadgetHub! We are dedicated to bringing you the latest and greatest in gadgets.</p>
       <p>Our mission is to provide high-quality products at competitive prices, ensuring customer satisfaction.</p>

@@ -1,13 +1,13 @@
-import { ShoppingCart, User, Menu, X } from "lucide-react";
+import { ShoppingCart, User, Menu, X, Plus } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../style/header.css";
 import Logo from "../home/Logo";
 
-function Header() {
+function Header({cartCount = 0}) {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-   
+
   const handleUserClick = () => {
     navigate('/login');
   }
@@ -19,6 +19,7 @@ function Header() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   }
+
 
   return (
     <header className="header">
@@ -33,23 +34,18 @@ function Header() {
       </nav>
 
       {/* Search - visible on desktop */}
-      <input 
-        type="search" 
-        placeholder="Search gadgets..." 
-        className="desktop-search"
-      />
+      <input type="search" placeholder="Search gadgets..." className="desktop-search" />
 
       {/* Mobile Search */}
-      <input 
-        type="search" 
-        placeholder="Search..." 
-        className="mobile-search"
-      />
+      <input type="search" placeholder="Search..." className="mobile-search" />
 
       {/* Desktop Icons */}
       <div className="icons desktop-icons">
         <User className="icon" onClick={handleUserClick} />
-        <ShoppingCart className="icon" />
+        <div className="cart-container">
+          <ShoppingCart className="icon" />
+          <Plus className="cart-add-icon">{cartCount}</Plus>
+        </div>
       </div>
 
       {/* Mobile Menu Button */}
@@ -67,10 +63,15 @@ function Header() {
             <Link to="/about" onClick={closeMenu}>About</Link>
             <div className="mobile-nav-icons">
               <button onClick={() => { handleUserClick(); closeMenu(); }}>
-                <User className="icon" /> Account
+                <User className="icon" />
+                Account
               </button>
               <button onClick={closeMenu}>
-                <ShoppingCart className="icon" /> Cart
+                <div className="cart-container">
+                  <ShoppingCart className="icon" />
+                  <Plus className="cart-add-icon" />
+                </div>
+                Cart
               </button>
             </div>
           </nav>

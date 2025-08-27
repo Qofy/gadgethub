@@ -1,5 +1,6 @@
 import { Truck, Shield, Star } from "lucide-react";
 import "../style/home.css"
+import { Link } from "react-scroll";
 
 
 function HomeHeader(){
@@ -13,7 +14,13 @@ function HomeHeader(){
         Discover cutting-edge home gadgets that make your life easier, smarter, and more connected. From smart speakers to wireless chargers, we have everything you need.
       </p>
       <div className="btn">
-      <button className="main-btn1 btns">Shop Now &#8594;</button>
+      <Link 
+      to="featured-container" 
+      spy={true}
+            smooth={true} 
+            duration={500}
+            offset={-80} 
+            className="main-btn1 btns">Shop Now &#8594;</Link>
       <button className="main-btn btns">View Catalog</button>
       </div>
       <div className="features">
@@ -31,7 +38,6 @@ function HomeHeader(){
         </div>
       </div>
       </div>
-
        <div className="product-image">
       </div>
       

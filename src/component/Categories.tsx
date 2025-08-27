@@ -3,10 +3,12 @@ import CategoriesHeader from "../categories/CategoriesHeader";
 import ProductItem from "../categories/ProductItem";
 import "../style/category.css"
 import Footer from "./Footer";
+import Header from "./Header";
 
 function Categories() {
   return (
     <div className="Categories-container">
+      <Header/>
       <CategoriesHeader/>
       <div className="product-ctg">
         <h2>

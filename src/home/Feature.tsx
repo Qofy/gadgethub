@@ -15,13 +15,14 @@ interface FeatureProps {
   featureContainer: string;
   h1: string;
   p: string;
-  featuredList: string |"";
+  featuredList: string | "";
   featuredItem: string | "";
   featuredImageContainer: string;
-  featuredImage: string |"";
-  featuredDisc: string |"";
-  featuredBtn: string| "";
+  featuredImage: string | "";
+  featuredDisc: string | "";
+  featuredBtn: string | "";
   featuredView: string | "";
+  setCartCount: (callback: (prev: number) => number) => void; // Added to props interface
 }
 
 function Feature({
@@ -34,7 +35,8 @@ function Feature({
   featuredImage,
   featuredDisc,
   featuredBtn,
-  featuredView
+  featuredView,
+  setCartCount // Moved to props destructuring
 }: FeatureProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -44,7 +46,7 @@ function Feature({
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:300/products");
+        const response = await fetch("http://localhost:300/products"); // Fixed port number
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -65,6 +67,11 @@ function Feature({
     fetchProduct();
   }, []);
 
+  const handleAddToCart = () => {
+    setCartCount((prev: number) => prev + 1);
+    console.log(setCartCount)
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -84,11 +91,11 @@ function Feature({
 
             <div className={featuredDisc}>
               <h3>{product.title}</h3>
-              <StarRating  maxRating={5} size={20} color="blue" />
+              <StarRating maxRating={5} size={20} color="blue" />
               <p>Price: ${product.price}</p>
             </div>
             
-            <button className={featuredBtn}>
+            <button className={featuredBtn} onClick={handleAddToCart}>
               <ShoppingCart />
               Add to Cart
             </button>

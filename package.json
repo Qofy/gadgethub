@@ -9,19 +9,21 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "vite dev",
-    "server":"json-server --watch product.json --port 300"
+    "server": "json-server --watch product.json --port 300"
   },
   "dependencies": {
     "lucide-react": "^0.536.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.7.1",
-    "react-router-dom": "^7.7.1"
+    "react-router-dom": "^7.7.1",
+    "react-scroll": "^1.9.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.6",
+    "@types/react-scroll": "^1.8.10",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",

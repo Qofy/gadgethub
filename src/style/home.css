@@ -64,6 +64,10 @@
   transition: background-color 0.3s ease;
 }
 
+.main-btn1:hover{
+  color: #ffff;
+}
+
 .features {
  display: grid;
  grid-template-columns: repeat(3,1fr);
