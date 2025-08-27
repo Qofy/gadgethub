@@ -44,7 +44,7 @@ function Header({cartCount = 0}) {
         <User className="icon" onClick={handleUserClick} />
         <div className="cart-container">
           <ShoppingCart className="icon" />
-          <Plus className="cart-add-icon">{cartCount}</Plus>
+          <div className="cart-add-icon">{cartCount}</div>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ function Header({cartCount = 0}) {
               <button onClick={closeMenu}>
                 <div className="cart-container">
                   <ShoppingCart className="icon" />
-                  <Plus className="cart-add-icon" />
+                  <div className="cart-add-icon" >{cartCount}</div>
                 </div>
                 Cart
               </button>

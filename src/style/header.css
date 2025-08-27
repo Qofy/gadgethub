@@ -116,15 +116,18 @@
 
 .cart-add-icon {
   position: absolute;
-  width: 12px;
-  height: 12px;
-  top: -2px;
-  right: -2px;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  right: -8px;
   background: #007bff;
   color: white;
   border-radius: 50%;
   padding: 1px;
   transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-container:hover .cart-add-icon {

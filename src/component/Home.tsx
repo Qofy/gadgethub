@@ -2,10 +2,10 @@ import "../style/home.css";
 import Feature from "../home/Feature";
 import Recommended from "../home/Recommended";
 import HomeHeader from "./HomeHeader";
-import Header from "./Header"; // Changed from Headers to Header
+import Header from "./Header"; 
 import Footer from "./Footer";
 import { useState } from "react";
-// import Product from "../assets/modern.jpg"
+
 
 function Home() { // Changed function name from Header to Home
   const [cartCount, setCartCount] = useState(0); // Removed TypeScript annotation for JS compatibility
