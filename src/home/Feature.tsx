@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart } from "lucide-react";
 import "../style/feature.css"; 
-import StarRating from "./StarRating";
+import { NavLink } from "react-router-dom";
+import Product from "./Product";
 
 interface Product {
   id: number;
@@ -36,7 +36,7 @@ function Feature({
   featuredDisc,
   featuredBtn,
   featuredView,
-  setCartCount // Moved to props destructuring
+  setCartCount 
 }: FeatureProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -46,7 +46,7 @@ function Feature({
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:300/products"); // Fixed port number
+        const response = await fetch("http://localhost:300/products");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -84,27 +84,21 @@ function Feature({
       </p>
       <div className={featuredList}>
         {products.map((product) => (
-          <div key={product.id} className={featuredItem}>
-            <div className={featuredImageContainer}>
-              <img src={product.prodImg} alt={product.title} className={featuredImage} />
-            </div>
-
-            <div className={featuredDisc}>
-              <h3>{product.title}</h3>
-              <StarRating maxRating={5} size={20} color="blue" />
-              <p>Price: ${product.price}</p>
-            </div>
-            
-            <button className={featuredBtn} onClick={handleAddToCart}>
-              <ShoppingCart />
-              Add to Cart
-            </button>
-          </div>
+         <Product 
+         key={product.id}
+            product={product} 
+            handleAddToCart={handleAddToCart}
+            featuredItem={featuredItem}
+            featuredImageContainer={featuredImageContainer}
+            featuredImage={featuredImage}
+            featuredDisc={featuredDisc}
+            featuredBtn={featuredBtn}
+         />
         ))}
       </div>
-      <button className={featuredView}>
+      <NavLink to="view-product" className={featuredView}>
         View All Products
-      </button>
+      </NavLink>
     </div>
   );
 }

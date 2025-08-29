@@ -1,7 +1,7 @@
 import "../style/home.css";
 import Feature from "../home/Feature";
 import Recommended from "../home/Recommended";
-import HomeHeader from "./HomeHeader";
+import HomeHeader from "../component/HomeHeader";
 import Header from "./Header"; 
 import Footer from "./Footer";
 import { useState } from "react";

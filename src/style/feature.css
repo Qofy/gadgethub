@@ -81,6 +81,9 @@ color: blue;
 .featured-view{
   width: 13rem;
   height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   letter-spacing: 1px;
   font-weight: 700;
@@ -92,6 +95,7 @@ color: blue;
 
 .featured-view:hover{
   background-color: rgb(23, 229, 229);
+  color: #ffff;
 }
 
 @media(max-width: 1279px){
