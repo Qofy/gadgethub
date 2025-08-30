@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 3rem;
   background-color: #ffff;
+  gap: 1.3rem;
 }
 .featured-container h1{
  text-align: center;

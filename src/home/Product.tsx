@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
 import { ShoppingCart } from "lucide-react";
 import StarRating from "./StarRating";
+import "../style/product.css";
 
-// Define the Product interface
-interface ProductType {
+interface Product {
   id: number;
   title: string;
   prodImg: string;
@@ -10,44 +11,146 @@ interface ProductType {
   price: number | "";
 }
 
-// Define props interface
-interface ProductProps {
-  product: ProductType;
-  handleAddToCart: () => void;
-  featuredItem: string;
-  featuredImageContainer: string | "";
-  featuredImage: string;
-  featuredDisc: string;
-  featuredBtn: string;
+interface ProductGridProps {
+  title?: string;
+  description?: string;
+  limit?: number; // Limit number of products to show
+  showPagination?: boolean;
+  gridClassName?: string;
+  cardClassName?: string;
+  setCartCount?: (callback: (prev: number) => number) => void;
 }
 
-function Product({ 
-  product, 
-  handleAddToCart,
-  featuredItem,
-  featuredImageContainer,
-  featuredImage,
-  featuredDisc,
-  featuredBtn
-}: ProductProps) {
+function ProductGrid({ 
+  title = "Products",
+  description = "",
+  limit,
+  showPagination = false,
+  gridClassName = "products-grid",
+  cardClassName = "product-card",
+  setCartCount
+}: ProductGridProps) {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [productsPerPage] = useState<number>(limit || 12);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("http://localhost:300/products");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data: Product[] = await response.json();
+        setProducts(data);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unexpected error occurred");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const handleAddToCart = () => {
+    if (setCartCount) {
+      setCartCount((prev: number) => prev + 1);
+    }
+  };
+
+  // Handle product display based on limit and pagination
+  let displayProducts = products;
+  let totalPages = 1;
+
+  if (showPagination) {
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    displayProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+    totalPages = Math.ceil(products.length / productsPerPage);
+  } else if (limit) {
+    displayProducts = products.slice(0, limit);
+  }
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  if (loading) return <div className="loading">Loading products...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
+
   return (
-    <div key={product.id} className={featuredItem}>
-      <div className={featuredImageContainer}>
-        <img src={product.prodImg} alt={product.title} className={featuredImage} />
+    <div className="product-grid-container">
+      {(title || description) && (
+        <div className="product-grid-header">
+          <h1>{title}</h1>
+          {description && <p>{description}</p>}
+        </div>
+      )}
+
+      <div className={gridClassName}>
+        {displayProducts.map((product) => (
+          <div key={product.id} className={cardClassName}>
+            <div className="product-image-container">
+              <img src={product.prodImg} alt={product.title} className="product-image" />
+            </div>
+
+            <div className="product-info">
+              <h3>{product.title}</h3>
+              <StarRating maxRating={5} size={18} color="#ffa500" />
+              <p className="product-price">{product.price}</p>
+            </div>
+            
+            {setCartCount && (
+              <button className="add-to-cart-btn" onClick={handleAddToCart}>
+                <ShoppingCart size={16} />
+                Add to Cart
+              </button>
+            )}
+          </div>
+        ))}
       </div>
 
-      <div className={featuredDisc}>
-        <h3>{product.title}</h3>
-        <StarRating maxRating={5} size={20} color="blue" />
-        <p>Price: {product.price}</p>
-      </div>
-      
-      <button className={featuredBtn} onClick={handleAddToCart}>
-        <ShoppingCart />
-        Add to Cart
-      </button>
+      {/* Pagination */}
+      {showPagination && totalPages > 1 && (
+        <div className="pagination">
+          <button 
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="pagination-btn"
+          >
+            Previous
+          </button>
+          
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              className={`pagination-btn ${currentPage === index + 1 ? 'active' : ''}`}
+            >
+              {index + 1}
+            </button>
+          ))}
+          
+          <button 
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="pagination-btn"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
-export default Product;
+export default ProductGrid;

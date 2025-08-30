@@ -14,8 +14,7 @@ function Home() { // Changed function name from Header to Home
     <div className="hom-container">
       <Header cartCount={cartCount} /> {/* Changed prop name to match */}
       <HomeHeader />
-      <Feature 
-        featureContainer="featured-container" 
+      <Feature  featureContainer="featured-container" 
         h1="Featured Product" 
         p="Discover our most popular gadgets that customers love. Each product comes with our quality guarantee and fast shipping"                 
         featuredItem="featured-item" 
@@ -26,6 +25,7 @@ function Home() { // Changed function name from Header to Home
         featuredBtn="featured-btn" 
         featuredView="featured-view"
         setCartCount={setCartCount}
+       
       />  
       <Recommended />
       <Footer />
