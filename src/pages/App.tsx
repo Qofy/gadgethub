@@ -7,6 +7,7 @@ import Categories from './Categories'
 import Deal from './Deal'
 import About from './About'
 import Login from './Login'
+import Signup from './Signup'
 import ViewAllProduct from '../component/ViewAllProduct'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/deal" element={<Deal />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
 
