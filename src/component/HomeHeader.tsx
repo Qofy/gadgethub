@@ -1,6 +1,7 @@
 import { Truck, Shield, Star } from "lucide-react";
 import "../style/home.css"
 import { Link } from "react-scroll";
+import { NavLink } from "react-router";
 
 
 function HomeHeader(){
@@ -21,7 +22,7 @@ function HomeHeader(){
             duration={500}
             offset={-80} 
             className="main-btn1 btns">Shop Now &#8594;</Link>
-      <button className="main-btn btns">View Catalog</button>
+      <NavLink to="/categories" className="main-btn btns">View Catalog</NavLink>
       </div>
       <div className="features">
         <div className="feature-item">

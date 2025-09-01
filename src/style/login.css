@@ -72,6 +72,7 @@
   margin-bottom: 0.25rem;
 }
 
+/* Regular input styling */
 .login-form input {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -88,47 +89,56 @@
   box-shadow: 0 0 0 2px rgba(0, 187, 255, 0.1);
 }
 
+/* Password input container */
 .password-input-container {
   position: relative;
   width: 100%;
 }
 
-/* Password Toggle Button - Positioned relative to its container */
-.password-toggle {
-  position: absolute;
-  right: 37rem;        /* Use rem units relative to container */
-  top: 59.4%;              /* Center vertically */
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #666;
-  padding: 0.25rem;      /* Add some padding for better touch targets */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;            /* Ensure it's above the input */
-}
-
-.password-toggle:hover {
-  color: rgb(0, 187, 255);
-}
-
-/* Ensure the input has padding-right to make room for the toggle */
+/* Password input specific styling */
 .password-input-container input {
   width: 100%;
-  padding: 0.75rem 3rem 0.75rem 1rem; /* Extra right padding for toggle */
+  padding: 0.75rem 3rem 0.75rem 1rem; /* Extra right padding for toggle button */
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .password-input-container input:focus {
   outline: none;
   border-color: rgb(0, 187, 255);
   box-shadow: 0 0 0 2px rgba(0, 187, 255, 0.1);
+}
+
+/* Password toggle button */
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.password-toggle:hover {
+  color: rgb(0, 187, 255);
+  background-color: rgba(0, 187, 255, 0.1);
+}
+
+.password-toggle:focus {
+  outline: 2px solid rgb(0, 187, 255);
+  outline-offset: 2px;
 }
 
 .remember-me {
@@ -311,11 +321,15 @@
     align-items: flex-start;
     gap: 0.5rem;
   }
+
+  /* Password toggle adjustments for mobile */
   .password-toggle {
-    position: absolute;
-  right: 15rem;        /* Use rem units relative to container */
-  top: 53.4%;              /* Center vertically */
-  transform: translateY(-50%);   
+    right: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .password-input-container input {
+    padding-right: 2.5rem;
   }
 }
 
@@ -323,17 +337,17 @@
   .login-box {
     padding: 1rem;
   }
+  
   .logo-header h3 {
     font-size: 1.25rem;
   }
+  
   .logo-header p {
     font-size: 0.85rem;
   }
 
+  /* Password toggle for very small screens */
   .password-toggle {
-    position: absolute;
-  right: 5rem;        /* Use rem units relative to container */
-  top: 53.4%;              /* Center vertically */
-  transform: translateY(-50%);
+    padding: 0.75rem;
   }
 }

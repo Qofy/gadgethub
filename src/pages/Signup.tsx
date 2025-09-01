@@ -129,7 +129,7 @@ function Signup() {
   return (
     <div className="login-page">
       <div className="login-container">
-        <span className="back-home" onClick={() => navigate(-1)}>  
+        <span className="back-home" onClick={() => navigate("/")}>  
           &larr; Back to Login
         </span>
         <div className="login-box">
