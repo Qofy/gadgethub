@@ -1,5 +1,5 @@
 import { ShoppingCart, User, Menu, X } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../style/header.css";
 import Logo from "../home/Logo";
@@ -27,10 +27,10 @@ function Header({cartCount = 0}) {
       
       {/* Desktop Navigation */}
       <nav className="desktop-nav">
-        <Link to="/">Home</Link>
-        <Link to="/categories">Categories</Link>
-        <Link to="/deal">Deal</Link>
-        <Link to="/about">About</Link>
+        <NavLink className="nav-links" to="/">Home</ NavLink>
+        <NavLink className="nav-links" to="/categories">Categories</NavLink>
+        <NavLink className="nav-links" to="/deal">Deal</NavLink>
+        <NavLink className="nav-links" to="/about">About</NavLink>
       </nav>
 
       {/* Search - visible on desktop */}

@@ -87,6 +87,10 @@
   outline: none;
   width: 150px;
 }
+.nav-link .active{
+  color: #007bff;
+  font-weight: 600;
+}
 
 /* Icons */
 .icons {
