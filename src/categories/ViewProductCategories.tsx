@@ -41,7 +41,7 @@ function ViewProductCategories() {
         }
       </h2>
       
-      <div className="products-grid">
+      <div className="cat-products-grid">
         {products.length > 0 ? (
           products.map((item) => (
             <div className="cat-product-item" key={item.id}>

@@ -1,6 +1,5 @@
 import '../App.css'
 
-// FIX: Use react-router-dom instead of react-router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./Home"
 import Categories from './Categories'

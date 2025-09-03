@@ -19,6 +19,8 @@
 }
 .category-header p{
   color: rgb(118, 116, 116);
+  max-width: 36rem;
+
 }
 /* .product-ctg{} */
 .product-ctg h2{
