@@ -6,6 +6,7 @@ import DealItems from "../deals/DealItems";
 import type { DealCategory } from "../data/deals-data";
 import dealProducts from "../data/deals-data";
 import { useState } from "react";
+import News from "../deals/News";
 
 
 function Deal() {
@@ -22,6 +23,7 @@ function Deal() {
       p="Don't miss out on our incredible deals! Limited time offers on the best smart home gadgets. Save big on top-rated products with fast shipping and quality guarantee."/>
       <Buttons activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
       <DealItems products={dealProducts[activeCategory] || []}/>
+      <News/>
     </div>
   );
 }

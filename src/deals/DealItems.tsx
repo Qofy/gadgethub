@@ -1,39 +1,52 @@
-// deals/DealItems.tsx
-import React from 'react';
+import React, { useCallback } from 'react';
 import type { DealItemsProps } from '../data/deals-data';
-
+import { ShoppingCart, Star, StarHalf } from 'lucide-react';
 import "../style/deals.css";
 
-const DealItems: React.FC<DealItemsProps> = ({ products }) => {
-  const calculateDiscount = (price: number, discountPrice: number): number => {
-    return Math.round(((price - discountPrice) / price) * 100);
-  };
+interface DealItemsExtendedProps extends DealItemsProps {
+  onAddToCart?: (productId: number) => void;
+}
 
-const renderStars = (rating: number): React.ReactNode[] => {
+const DealItems: React.FC<DealItemsExtendedProps> = ({ products, onAddToCart }) => {
+  const calculateDiscount = useCallback((price: number, discountPrice: number): number => {
+    return Math.round(((price - discountPrice) / price) * 100);
+  }, []);
+
+  const renderStars = useCallback((rating: number): React.ReactNode[] => {
     const stars: React.ReactNode[] = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<span key={i} className="star filled">★</span>);
+      stars.push(
+        <Star key={i} className="star filled" size={16} fill="currentColor" />
+      );
     }
 
     if (hasHalfStar) {
-      stars.push(<span key="half" className="star half">★</span>);
+      stars.push(
+        <StarHalf key="half" className="star half" size={16} fill="currentColor" />
+      );
     }
 
     const remainingStars = 5 - Math.ceil(rating);
     for (let i = 0; i < remainingStars; i++) {
-      stars.push(<span key={`empty-${i}`} className="star empty">☆</span>);
+      stars.push(
+        <Star key={`empty-${i}`} className="star empty" size={16} />
+      );
     }
 
     return stars;
-  };
+  }, []);
 
-  const handleAddToCart = (productId: number): void => {
-    // Add your cart logic here
-    console.log(`Adding product ${productId} to cart`);
-  };
+  const handleAddToCart = useCallback((productId: number): void => {
+    if (onAddToCart) {
+      onAddToCart(productId);
+    } else {
+      // Fallback or default behavior
+      console.log(`Adding product ${productId} to cart`);
+    }
+  }, [onAddToCart]);
 
   return (
     <div className="deal-items">
@@ -68,6 +81,7 @@ const renderStars = (rating: number): React.ReactNode[] => {
               className="add-to-cart-btn"
               onClick={() => handleAddToCart(product.id)}
             >
+              <ShoppingCart size={16} />
               Add to Cart
             </button>
           </div>

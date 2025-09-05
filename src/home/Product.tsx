@@ -45,14 +45,28 @@ function ProductGrid({
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data: Product[] = await response.json();
-        setProducts(data);
+        const data = await response.json();
+        console.log("API Response:", data); // Debug log to see actual structure
+        
+        // Handle different possible response structures
+        let productsArray: Product[] = [];
+        if (data && Array.isArray(data.products)) {
+          productsArray = data.products;
+        } else if (Array.isArray(data)) {
+          productsArray = data;
+        } else {
+          console.warn("Unexpected API response structure:", data);
+          throw new Error("Invalid data format received from API");
+        }
+        
+        setProducts(productsArray);
       } catch (err) {
         if (err instanceof Error) {
           setError(err.message);
         } else {
           setError("An unexpected error occurred");
         }
+        console.error("Fetch error:", err);
       } finally {
         setLoading(false);
       }
@@ -67,16 +81,18 @@ function ProductGrid({
   };
 
   // Handle product display based on limit and pagination
-  let displayProducts = products;
+  // Add safety checks to ensure products is always an array
+  const safeProducts = Array.isArray(products) ? products : [];
+  let displayProducts = safeProducts;
   let totalPages = 1;
 
   if (showPagination) {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    displayProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-    totalPages = Math.ceil(products.length / productsPerPage);
+    displayProducts = safeProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+    totalPages = Math.ceil(safeProducts.length / productsPerPage);
   } else if (limit) {
-    displayProducts = products.slice(0, limit);
+    displayProducts = safeProducts.slice(0, limit);
   }
 
   const handlePageChange = (pageNumber: number) => {
@@ -86,6 +102,7 @@ function ProductGrid({
 
   if (loading) return <div className="loading">Loading products...</div>;
   if (error) return <div className="error">Error: {error}</div>;
+  if (safeProducts.length === 0) return <div className="no-products">No products found.</div>;
 
   return (
     <div className="product-grid-container">
