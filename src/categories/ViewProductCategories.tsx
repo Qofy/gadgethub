@@ -2,9 +2,11 @@
 import { useParams } from "react-router-dom";
 import CatProduct from "../data/categoriesProduct-data";
 import "../style/viewcatproduct.css"
+import { useNavigate } from "react-router-dom";
 
 function ViewProductCategories() {
   const { category } = useParams();
+  const navigate = useNavigate();
   
   const getProductsByCategory = () => {
     if (!category || category === 'all') {
@@ -34,6 +36,9 @@ function ViewProductCategories() {
   
   return (
     <div className="view-product-cat">
+      <span className="back-home" onClick={() => navigate("/categories")} >  
+          &larr; Back to Home
+        </span>
       <h2>
         {category && category !== 'all' 
           ? `${category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())} Products`
