@@ -4,7 +4,7 @@ import { useState } from "react";
 import "../style/header.css";
 import Logo from "../home/Logo";
 
-function Header({cartCount = 0}) {
+function Header({ cartCount = 0 }) {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,17 +20,16 @@ function Header({cartCount = 0}) {
     setIsMenuOpen(false);
   }
 
-
   return (
     <header className="header">
-      <Logo conName="logo-container" logo="logo" spanName="title"/>
+      <Logo conName="logo-container" logo="logo" spanName="title" />
       
       {/* Desktop Navigation */}
       <nav className="desktop-nav">
-        <NavLink className="nav-links" to="/">Home</ NavLink>
-        <NavLink className="nav-links" to="/categories">Categories</NavLink>
-        <NavLink className="nav-links" to="/deal">Deal</NavLink>
-        <NavLink className="nav-links" to="/about">About</NavLink>
+        <NavLink className="nav-link" to="/">Home</NavLink>
+        <NavLink className="nav-link" to="/categories">Categories</NavLink>
+        <NavLink className="nav-link" to="/deal">Deal</NavLink>
+        <NavLink className="nav-link" to="/about">About</NavLink>
       </nav>
 
       {/* Search - visible on desktop */}
@@ -55,7 +54,21 @@ function Header({cartCount = 0}) {
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="mobile-nav-overlay" onClick={closeMenu}>
+        <div 
+          className="mobile-nav-overlay" 
+          onClick={closeMenu}
+          style={{ 
+            position: 'fixed',
+            top: '60px',
+            left: '0',
+            right: '0',
+            bottom: '0',
+            background: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 999,
+            display: 'flex',
+            justifyContent: 'flex-end'
+          }}
+        >
           <nav className="mobile-nav" onClick={(e) => e.stopPropagation()}>
             <Link to="/" onClick={closeMenu}>Home</Link>
             <Link to="/categories" onClick={closeMenu}>Categories</Link>
@@ -69,7 +82,7 @@ function Header({cartCount = 0}) {
               <button onClick={closeMenu}>
                 <div className="cart-container">
                   <ShoppingCart className="icon" />
-                  <div className="cart-add-icon" >{cartCount}</div>
+                  <div className="cart-add-icon">{cartCount}</div>
                 </div>
                 Cart
               </button>

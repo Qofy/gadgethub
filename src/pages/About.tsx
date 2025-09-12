@@ -1,13 +1,17 @@
 import Header from "../pages/Header";
+import AboutHeader from "../categories/CategoriesHeader"
+import AboutFeatures from "../about/AboutFeatures";
+import OurStory from "../about/OurStory";
 
 function About() {
   return (
     <div>
       <Header/>
-      <h1>About Us</h1>
-      <p>Welcome to GadgetHub! We are dedicated to bringing you the latest and greatest in gadgets.</p>
-      <p>Our mission is to provide high-quality products at competitive prices, ensuring customer satisfaction.</p>
-      <p>Thank you for choosing GadgetHub!</p>
+      <AboutHeader hearderclassName="about-header" p="We're passionate about bringing you the latest and greatest in smart home technology. Our mission is to make modern living more convenient, efficient, and enjoyable through innovative gadgets and exceptional service." 
+      h1="About GadgetHub"/>
+     <AboutFeatures/>
+      <OurStory/>
+      
     </div>
   );
 }
