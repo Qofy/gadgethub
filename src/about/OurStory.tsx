@@ -37,7 +37,7 @@ function OurStory(): JSX.Element {
       imageContent={imageContent}
       imageClassName="our-story-image"
       contentClassName="our-story-content"
-      reverse={true} // This will put image first, content second if needed
+      reverse={false} // This will put image first, content second if needed
     />
   );
 }

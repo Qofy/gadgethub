@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "vite dev",
-    "server": "json-server --watch product.json --port 300"
+    "server": "json-server --watch product.json --port 3001"
   },
   "dependencies": {
     "firebase": "^12.2.1",

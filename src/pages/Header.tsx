@@ -4,12 +4,20 @@ import { useState } from "react";
 import "../style/header.css";
 import Logo from "../home/Logo";
 
-function Header({ cartCount = 0 }) {
+interface HeaderProps {
+  cartCount?: number;
+}
+
+function Header({ cartCount = 0 }: HeaderProps) {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleUserClick = () => {
     navigate('/login');
+  }
+
+  const handleCartClick = () => {
+    navigate('/cart');
   }
 
   const toggleMenu = () => {
@@ -41,9 +49,9 @@ function Header({ cartCount = 0 }) {
       {/* Desktop Icons */}
       <div className="icons desktop-icons">
         <User className="icon" onClick={handleUserClick} />
-        <div className="cart-container">
+        <div className="cart-container" onClick={handleCartClick}>
           <ShoppingCart className="icon" />
-          <div className="cart-add-icon">{cartCount}</div>
+          {cartCount > 0 && <div className="cart-add-icon">{cartCount}</div>}
         </div>
       </div>
 
@@ -54,21 +62,7 @@ function Header({ cartCount = 0 }) {
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div 
-          className="mobile-nav-overlay" 
-          onClick={closeMenu}
-          style={{ 
-            position: 'fixed',
-            top: '60px',
-            left: '0',
-            right: '0',
-            bottom: '0',
-            background: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 999,
-            display: 'flex',
-            justifyContent: 'flex-end'
-          }}
-        >
+        <div className="mobile-nav-overlay" onClick={closeMenu}>
           <nav className="mobile-nav" onClick={(e) => e.stopPropagation()}>
             <Link to="/" onClick={closeMenu}>Home</Link>
             <Link to="/categories" onClick={closeMenu}>Categories</Link>
@@ -79,10 +73,10 @@ function Header({ cartCount = 0 }) {
                 <User className="icon" />
                 Account
               </button>
-              <button onClick={closeMenu}>
+              <button onClick={() => { handleCartClick(); closeMenu(); }}>
                 <div className="cart-container">
                   <ShoppingCart className="icon" />
-                  <div className="cart-add-icon">{cartCount}</div>
+                  {cartCount > 0 && <div className="cart-add-icon">{cartCount}</div>}
                 </div>
                 Cart
               </button>

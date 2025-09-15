@@ -131,6 +131,8 @@
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 600;
+  min-width: 20px;
+  min-height: 20px;
 }
 
 .cart-container:hover .cart-add-icon {
@@ -150,7 +152,7 @@
   padding: 0.5rem;
 }
 
-/* Mobile Navigation Overlay */
+/* Mobile Navigation Overlay - FIXED: Remove display flex important */
 .mobile-nav-overlay {
   position: fixed;
   top: 60px;
@@ -172,6 +174,8 @@
   flex-direction: column;
   gap: 1.5rem;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
 }
 
 .mobile-nav a {
@@ -183,7 +187,8 @@
   transition: color 0.2s;
 }
 
-.mobile-nav a:hover {
+.mobile-nav a:hover,
+.mobile-nav a.active {
   color: #007bff;
 }
 
@@ -206,6 +211,7 @@
   color: #222;
   border-bottom: 1px solid #eee;
   transition: color 0.2s;
+  text-align: left;
 }
 
 .mobile-nav-icons button:hover {
@@ -227,11 +233,11 @@
   }
   
   .desktop-nav {
-    display: none !important;
+    display: none;
   }
   
   .desktop-search {
-    display: none !important;
+    display: none;
   }
   
   .mobile-search {
@@ -239,16 +245,11 @@
   }
   
   .desktop-icons {
-    display: none !important;
+    display: none;
   }
   
   .mobile-menu-btn {
-    display: block !important;
-  }
-  
-  /* Ensure mobile nav shows properly */
-  .mobile-nav-overlay {
-    display: flex !important;
+    display: block;
   }
 }
 

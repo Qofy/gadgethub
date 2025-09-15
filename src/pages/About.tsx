@@ -5,10 +5,11 @@ import OurStory from "../about/OurStory";
 import Footer from "./Footer";
 import FeatureItems from "../home/FeatureItems";
 import { Heart } from "lucide-react";
+import "../style/aboutInfo.css"
 
 function About() {
   return (
-    <div>
+    <div className="about-page">
       <Header/>
       <AboutHeader hearderclassName="about-header" p="We're passionate about bringing you the latest and greatest in smart home technology. Our mission is to make modern living more convenient, efficient, and enjoyable through innovative gadgets and exceptional service." 
       h1="About GadgetHub"/>
