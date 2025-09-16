@@ -40,7 +40,7 @@ function ProductGrid({
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:3001/products");
+        const response = await fetch("http://localhost:3005/products");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

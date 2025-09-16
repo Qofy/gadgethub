@@ -30,9 +30,7 @@ function HomeHeader(): JSX.Element {
       contentClassName="main-content"
       imageContent
     >
-      <div className="features">
         <FeatureItems />
-      </div>
     </ReusableSection>
   );
 }

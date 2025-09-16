@@ -2,7 +2,7 @@ import "../style/feature.css";
 import { NavLink } from "react-router-dom";
 import ProductGrid from "./Product";
 interface FeatureProps {
-  featureContainer: string;
+  featureContainer?: string;
   h1: string;
   p: string;
   featuredList: string | "";

@@ -19,8 +19,13 @@ function About() {
       hearderclassName="our-values" 
       p="These core principles guide everything we do, from product selection to customer service."
       h1="Our Values"/>
-      <FeatureItems 
+      <FeatureItems
+      containerName="about-value" 
+      cnName="about-value-items" 
       StarIcon={Heart} 
+      iconProps={
+        {color: "rgb(23, 229, 229)", size: 70}
+      }
       h1="Customer First" 
       p="Your satisfaction is our priority. We're here to help you find the perfect gadgets for your needs."
       Sh1="Quality Assurance"
